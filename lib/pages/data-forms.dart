@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:myapp/components/background-decoration.dart';
 import 'package:myapp/constants/commons.dart';
 import 'package:myapp/constants/error-messages.dart';
 import 'package:myapp/utils/utility.dart';
@@ -19,6 +20,28 @@ class _DataFormsState extends State<DataForms> {
   final TextEditingController _dateOfBirthController = TextEditingController();
 
   @override
+  void initState() {
+    super.initState();
+    print("initState data form");
+
+    _emailController.addListener(() {
+      // setState(() {});
+    });
+
+    _firstNameController.addListener(() {
+      // setState(() {});
+    });
+
+    _lastNameController.addListener(() {
+      // setState(() {});
+    });
+
+    _dateOfBirthController.addListener(() {
+      // setState(() {});
+    });
+  }
+
+  @override
   void dispose() {
     // Clean up the controller when the widget is removed from the widget tree.
     _emailController.dispose();
@@ -30,6 +53,7 @@ class _DataFormsState extends State<DataForms> {
 
   @override
   Widget build(BuildContext context) {
+    print("build data form");
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
@@ -41,6 +65,7 @@ class _DataFormsState extends State<DataForms> {
             ),
             title: Text('Form')),
         body: Container(
+          decoration: backgroundDecoration,
           padding: EdgeInsets.all(20),
           child: Form(
             key: _formKey,
@@ -158,11 +183,13 @@ class _DataFormsState extends State<DataForms> {
       required String text,
       IconData? icon}) {
     return InputDecoration(
-      suffixIcon: IconButton(
-          onPressed: () {
-            controller.text = "";
-          },
-          icon: Icon(Icons.clear)),
+      suffixIcon: controller.text.isNotEmpty
+          ? IconButton(
+              onPressed: () {
+                controller.clear();
+              },
+              icon: Icon(Icons.clear))
+          : null,
       hintText: text,
       labelText: text,
       enabledBorder: underlineInputBorder,
