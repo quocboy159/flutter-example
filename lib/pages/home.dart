@@ -13,6 +13,7 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
         appBar: AppBar(
             actions: <Widget>[
@@ -89,7 +90,7 @@ class Home extends StatelessWidget {
                       Navigator.pushNamed(context, '/card-list');
                     },
                   ),
-                   ElevatedButton(
+                  ElevatedButton(
                     child: Text('Data Form'),
                     style: raisedButtonStyle,
                     onPressed: () {

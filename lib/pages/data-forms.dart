@@ -4,6 +4,7 @@ import 'package:myapp/components/background-decoration.dart';
 import 'package:myapp/constants/commons.dart';
 import 'package:myapp/constants/error-messages.dart';
 import 'package:myapp/utils/utility.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class DataForms extends StatefulWidget {
   const DataForms({Key? key}) : super(key: key);
@@ -18,6 +19,7 @@ class _DataFormsState extends State<DataForms> {
   final TextEditingController _firstNameController = TextEditingController();
   final TextEditingController _lastNameController = TextEditingController();
   final TextEditingController _dateOfBirthController = TextEditingController();
+
 
   @override
   void initState() {
@@ -53,7 +55,7 @@ class _DataFormsState extends State<DataForms> {
 
   @override
   Widget build(BuildContext context) {
-    print("build data form");
+
     return Scaffold(
         resizeToAvoidBottomInset: false,
         appBar: AppBar(
@@ -73,7 +75,7 @@ class _DataFormsState extends State<DataForms> {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(8.0),
-                  child: _emailTextField(),
+                  child: _emailTextField(context),
                 ),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
@@ -97,10 +99,10 @@ class _DataFormsState extends State<DataForms> {
         ));
   }
 
-  Widget _emailTextField() {
+  Widget _emailTextField(BuildContext context) {
     final validator = MultiValidator([
       RequiredValidator(errorText: RequiredError),
-      EmailValidator(errorText: EmailError),
+      EmailValidator(errorText: AppLocalizations.of(context)!.emailError("Email")),
       MaxLengthValidator(50, errorText: maxLengthError(50))
     ]);
 

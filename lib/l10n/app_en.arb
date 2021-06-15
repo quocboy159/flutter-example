@@ -1,0 +1,15 @@
+{
+  "welcome": "Welcome to My App!",
+  "@welcome": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "emailError": "The {field} is not a email format",
+  "@emailError": {
+    "description": "The {field} is not a email format",
+    "placeholders": {
+      "field": {
+        "type": "String"
+      }
+    }
+  }
+}
