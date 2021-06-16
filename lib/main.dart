@@ -14,28 +14,33 @@ Future main() async {
     DeviceOrientation.portraitDown,
   ]);
 
-  runApp(MyApp());
+  runApp(MultiProvider(providers: [
+    ChangeNotifierProvider<LocaleProvider>(
+      create: (BuildContext context) {
+        return LocaleProvider();
+      },
+    ),
+  ], child: MyApp()));
 }
 
 class MyApp extends StatelessWidget {
   @override
-  Widget build(BuildContext context) => ChangeNotifierProvider(
-        create: (context) => LocaleProvider(),
-        builder: (context, child) {
-          final provider = Provider.of<LocaleProvider>(context);
-
-          return MaterialApp(
-              locale: provider.locale,
-              supportedLocales: L10n.all,
-              localizationsDelegates: [
-                AppLocalizations.delegate,
-                GlobalMaterialLocalizations.delegate,
-                GlobalWidgetsLocalizations.delegate,
-                GlobalCupertinoLocalizations.delegate,
-              ],
-              theme: ThemeData(primaryColor: Color(0xFF7986CB)),
-              initialRoute: '/',
-              routes: routes(context));
-        },
-      );
+  Widget build(BuildContext context) {
+    return Consumer<LocaleProvider>(
+      builder: (context, countryState, child) {
+        return MaterialApp(
+            locale: countryState.locale,
+            supportedLocales: L10n.all,
+            localizationsDelegates: [
+              AppLocalizations.delegate,
+              GlobalMaterialLocalizations.delegate,
+              GlobalWidgetsLocalizations.delegate,
+              GlobalCupertinoLocalizations.delegate,
+            ],
+            theme: ThemeData(primaryColor: Color(0xFF7986CB)),
+            initialRoute: '/',
+            routes: routes(context));
+      },
+    );
+  }
 }

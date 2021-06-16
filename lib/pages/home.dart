@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/components/background-decoration.dart';
+import 'package:myapp/components/locale-picker.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class Home extends StatelessWidget {
   final ButtonStyle raisedButtonStyle = ElevatedButton.styleFrom(
@@ -13,16 +15,9 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
         appBar: AppBar(
-            actions: <Widget>[
-              IconButton(
-                  icon: Icon(Icons.home),
-                  onPressed: () {
-                    Navigator.pop(context);
-                  })
-            ],
+            actions: <Widget>[LocalePicker()],
             leading: IconButton(
               icon: Icon(Icons.menu),
               onPressed: null,
@@ -35,68 +30,68 @@ class Home extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: <Widget>[
                   ElevatedButton(
-                    child: new Text('Search'),
+                    child: new Text(AppLocalizations.of(context)!.search),
                     style: raisedButtonStyle,
                     onPressed: () {
                       Navigator.pushNamed(context, '/search');
                     },
                   ),
                   ElevatedButton(
-                    child: Text('Images & Assets'),
+                    child: Text(AppLocalizations.of(context)!.imagesAndAssets),
                     style: raisedButtonStyle,
                     onPressed: () {
                       Navigator.pushNamed(context, '/images');
                     },
                   ),
                   ElevatedButton(
-                    child: Text('Buttons & Icons'),
+                    child: Text(AppLocalizations.of(context)!.buttonsAndIcons),
                     style: raisedButtonStyle,
                     onPressed: () {
                       Navigator.pushNamed(context, '/buttons');
                     },
                   ),
                   ElevatedButton(
-                    child: Text('Rows'),
+                    child: Text(AppLocalizations.of(context)!.row),
                     style: raisedButtonStyle,
                     onPressed: () {
                       Navigator.pushNamed(context, '/rows');
                     },
                   ),
                   ElevatedButton(
-                    child: Text('Expanded Widgets'),
+                    child: Text(AppLocalizations.of(context)!.expandedWidgets),
                     style: raisedButtonStyle,
                     onPressed: () {
                       Navigator.pushNamed(context, '/expandeds');
                     },
                   ),
                   ElevatedButton(
-                    child: Text('Ninja Id Project'),
+                    child: Text(AppLocalizations.of(context)!.ninjaIdProject),
                     style: raisedButtonStyle,
                     onPressed: () {
                       Navigator.pushNamed(context, '/ninja-id-project');
                     },
                   ),
                   ElevatedButton(
-                    child: Text('List Data'),
+                    child: Text(AppLocalizations.of(context)!.listData),
                     style: raisedButtonStyle,
                     onPressed: () {
                       Navigator.pushNamed(context, '/list-data');
                     },
                   ),
                   ElevatedButton(
-                    child: Text('Card List'),
+                    child: Text(AppLocalizations.of(context)!.cardList),
                     style: raisedButtonStyle,
                     onPressed: () {
                       Navigator.pushNamed(context, '/card-list');
                     },
                   ),
                   ElevatedButton(
-                    child: Text('Data Form'),
+                    child: Text(AppLocalizations.of(context)!.dataForm),
                     style: raisedButtonStyle,
                     onPressed: () {
                       Navigator.pushNamed(context, '/form');
                     },
-                  )
+                  ),
                 ]),
           ),
         ));

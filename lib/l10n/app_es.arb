@@ -1,4 +1,13 @@
 {
     "welcome": "Bienvenido a mi aplicación!",
-    "emailError": "El {campo} no es un formato de correo electrónico"
+    "emailError": "El {campo} no es un formato de correo electrónico",
+    "search": "Buscar",
+    "imagesAndAssets": "Imágenes y activos",
+    "buttonsAndIcons": "Botones e iconos",
+    "row": "Fila",
+    "expandedWidgets": "Widgets ampliados",
+    "ninjaIdProject": "Proyecto Ninja Id",
+    "listData": "Lista de datos",
+    "cardList": "Lista de cartas",
+    "dataForm": "Formulario de datos"
 }

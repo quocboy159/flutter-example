@@ -62,7 +62,7 @@ class CardItem extends StatelessWidget {
             subtitle: Text(product.description),
           ),
           Row(
-            mainAxisAlignment: MainAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.end,
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
